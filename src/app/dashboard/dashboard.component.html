@@ -1,0 +1,74 @@
+<button class="btn btn-primary float-end logout" (click)=onLogout()>logout</button>
+<strong class="float-end mt-2 me-3">welcome - {{useremail}}</strong>
+<nav class="bg-danger text-center ">
+    <h2>Task Management System</h2>
+</nav>
+
+<div class="container mb-5">
+    <div class="row heading bg-primary mt-3">
+        <div class="col-12 text-center mt-3 ">
+            <h1>Simple Todo App</h1>
+        </div>
+    </div>
+
+
+    <form (ngSubmit) ="onAddtask()" [formGroup] ="taskform">
+    <div class="row border-bottom">
+        <div class="col-6 mt-3 ">
+            <textarea name="taskdata" placeholder="Enter Task Here......." formControlName ="description"></textarea>
+        </div>
+        <div class=" inputboxes text-center col-6  mt-3 ">
+            <input class="mb-1" type="date" formControlName ="date"><br>
+                <input  type="text" placeholder="enter tags.." formControlName ="tags"><br>
+                <button class="addtask float-end btn btn-danger "type="submit">add task</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+<!-- defualt tags -->
+<div class="container mb-3">
+<button class="btn btn-primary me-5 mb-3">urgent</button>
+<button class="btn btn-primary me-3 mb-3">health</button>
+<button class="btn btn-primary me-3 mb-3">work</button>
+<button class="btn btn-primary me-3 mb-3">personal</button>
+<button class="btn btn-primary me-3 mb-3">study</button>
+<button class="btn btn-primary me-3 mb-3">shopping</button>
+<button class="btn btn-primary me-3 mb-3">fitness</button>
+<button class="btn btn-primary me-3 mb-3">family</button>
+<button class="btn btn-primary me-3 mb-3">friends</button>
+<button class="btn btn-primary me-3 mb-3">office</button>
+<button class="btn btn-primary me-3 mb-3">high priority</button>
+<button class="btn btn-primary me-3 mb-3">low priority</button>
+<button class="btn btn-primary me-3 mb-3 ">home</button>
+</div>
+
+
+
+ <!-- userdata shown in table -->
+<div class="container">
+    <div class="row ">
+        <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>task-no</th>
+                <th>Description</th>
+                <th>Due-date</th>
+                <th>Completed</th>
+                <th>tag</th>
+                <th>Delete Task</th>
+            </tr>
+        </thead>
+        <tbody class="table-primary">
+            <tr *ngFor ="let task of tasklist; let i = index" >
+                <td>{{i+1}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.date}}</td>
+                <td><input type="checkbox"></td>
+                <td>{{task.tags}}</td>
+                <td><button class="btn btn-success" (click) = "deleteTask(i)">delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
