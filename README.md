@@ -1,4 +1,5 @@
 # TaskManagementSystem
+✅ A full-featured Task Management System built with Angular, allowing users to create, update, delete, and track tasks efficiently. Designed with a clean UI, it helps manage daily to-dos, set priorities, and boost productivity.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
